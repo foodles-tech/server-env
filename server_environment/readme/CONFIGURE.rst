@@ -5,6 +5,9 @@ used values are 'dev', 'test', 'production'::
   [options]
   running_env=dev
 
+Or set the `RUNNING_ENV` environment variable which will take the precedence
+if set.
+
 Values associated to keys containing 'passw' are only displayed in the 'dev'
 environment.
 

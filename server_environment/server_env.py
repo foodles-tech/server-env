@@ -52,6 +52,9 @@ def _load_running_env():
         )
         # safe default
         system_base_config["running_env"] = "test"
+    system_base_config["running_env"] = os.environ.get(
+        "RUNNING_ENV", system_base_config["running_env"]
+    )
 
 
 _load_running_env()
