@@ -38,7 +38,7 @@ class TestEnv(common.ServerEnvironmentCase):
         server_env._load_running_env()
         self._test_default(hidden_pwd=True)
 
-    @patch.dict(odoo_config.options, {"running_env": "whatever"})
+    @patch.dict(odoo_config.options, {"running_env": None})
     @patch.dict(os.environ, {"RUNNING_ENV": "dev"})
     def test_default_dev_from_environ(self):
         server_env._load_running_env()
