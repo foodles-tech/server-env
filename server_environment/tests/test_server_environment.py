@@ -44,6 +44,12 @@ class TestEnv(common.ServerEnvironmentCase):
         server_env._load_running_env()
         self._test_default()
 
+    @patch.dict(odoo_config.options, {"running_env": None})
+    @patch.dict(os.environ, {"ODOO_STAGE": "dev"})
+    def test_odoosh_dev_from_environ(self):
+        server_env._load_running_env()
+        self._test_default()
+
     @patch.dict(odoo_config.options, {"running_env": "testing"})
     def test_value_retrival(self):
         with self.set_config_dir("testfiles"):

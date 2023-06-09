@@ -45,13 +45,13 @@ _boolean_states = {
 
 def _load_running_env():
     if not system_base_config.get("running_env"):
-
-        env_running_env = os.environ.get("RUNNING_ENV")
+        env_running_env = os.environ.get("RUNNING_ENV", os.environ.get("ODOO_STAGE"))
         if env_running_env:
             system_base_config["running_env"] = env_running_env
         else:
             _logger.info(
-                "`running_env` or `RUNNING_ENV` not found. Using default = `test`."
+                "`running_env` or `RUNNING_ENV`, `ODOO_STAGE` not found. "
+                "Using default = `test`."
             )
             _logger.info(
                 "We strongly recommend against using the rc file but instead use an "
